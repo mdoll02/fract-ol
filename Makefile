@@ -9,13 +9,14 @@
 
 NAME        := fractol
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror 
+FLAGS    := -Wall -Wextra -Werror
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      fractol.c \
+SRCS        :=      fractol.c  process_input.c process_input.c mandelbrot.c \
+
                           
 OBJS        := $(SRCS:.c=.o)
 
