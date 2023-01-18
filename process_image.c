@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_input.c                                    :+:      :+:    :+:   */
+/*   process_image.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 15:01:27 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/18 10:47:55 by mdoll            ###   ########.fr       */
+/*   Created: 2023/01/18 14:11:58 by mdoll             #+#    #+#             */
+/*   Updated: 2023/01/18 16:14:56 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./fractol.h"
 
-int	process_k_input(int keycode, t_mlx *data)
+void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
 {
-	if (keycode == 4)
-	{
-		printf("HELP ME! PLS!");
-		return (0);
-	}
-	if (keycode == 53)
-	{
-		close(data);
-	}
-	return (0);
-}
+	char	*dst;
 
-int	close(t_mlx *data)
-{
-	mlx_destroy_window(data->mlx, data->win);
-	free(data);
-	exit(0);
+	// printf("Puttin da piksel\n");
+	dst = data->img_addr + (y * data->line_length + \
+		x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }

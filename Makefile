@@ -15,7 +15,7 @@ FLAGS    := -Wall -Wextra -Werror
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      fractol.c  process_input.c process_input.c mandelbrot.c \
+SRCS        :=      fractol.c  process_input.c mandelbrot.c init.c process_image.c \
 
                           
 OBJS        := $(SRCS:.c=.o)
