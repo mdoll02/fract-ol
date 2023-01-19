@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:27:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/18 16:19:04 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/19 15:07:24 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,24 +77,20 @@
 // }
 
 void mandelbrot(t_mlx *data)
-{
-	double MinRe = -2.0;
-	double MaxRe = 1.0;
-	double MinIm = -1.2;
-	double MaxIm = MinIm+(MaxRe-MinRe) * data->y_height / data->x_width;
-	double Re_factor = (MaxRe-MinRe)/( data->x_width-1);
-	double Im_factor = (MaxIm-MinIm)/(data->y_height -1);
-	
-	for(int y=0; y<data->y_height; ++y)
+{	
+	mandel_init(data);	
+	while(data->y < data->y_height)
 	{
-	    double c_im = MaxIm - y*Im_factor;
-	    for(int x=0; x< data->x_width; ++x)
+	    data->c_im = data->max_im - data->y * data->im_factor;
+		data->x	= 0;
+	    while (data->x < data->x_width)
 	    {
-	        double c_re = MinRe + x*Re_factor;
+			double c_re = data->min_re + data->x * data->re_factor;
 	
-	        double Z_re = c_re, Z_im = c_im;
+	        double Z_re = c_re, Z_im = data->c_im;
 	        int isInside = 1;
-	        for(int n=0; n<data->iterations; ++n)
+			data->it = 0;
+	        while(data->it < data->iterations)
 	        {
 	            double Z_re2 = Z_re*Z_re, Z_im2 = Z_im*Z_im;
 	            if(Z_re2 + Z_im2 > 4)
@@ -102,11 +98,38 @@ void mandelbrot(t_mlx *data)
 	                isInside = 0;
 	                break;
 	            }
-	            Z_im = 2*Z_re*Z_im + c_im;
+	            Z_im = 2*Z_re*Z_im + data->c_im;
 	            Z_re = Z_re2 - Z_im2 + c_re;
+				data->it++;
 	        }
-	        if(isInside == 1) { my_mlx_pixel_put(data, x, y, data->col); }
+			if (data->it == data->iterations)
+				my_mlx_pixel_put(data, data->x, data->y, data->std_col); 
+	        else
+				my_mlx_pixel_put(data, data->x, data->y, 0x00ff0000); // my_mlx_color_put(data, x, y);
+			data->x++;	
 	    }
+		data->y++;
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }
+
+void	mandel_init(t_mlx *data)
+{
+	data->x = 0;
+	data->y = 0;
+	data->min_re = -2.0;
+	data->max_re = 1.0;
+	data->min_im = -1.2;
+	data->max_im = data->min_im + (data->max_re - data->min_re) * data->y_height / data->x_width;
+	data->re_factor = (data->max_re - data->min_re) / (data->x_width - 1);
+	data->im_factor = (data->max_im - data->min_im) / (data->y_height - 1);
+}
+
+// void	mandel_calc(t_mlx *data)
+// {
+// 	double c_re = data->min_re + data->x * data->re_factor;
+	
+// 	        double Z_re = c_re, Z_im = data->c_im;
+// 	        int isInside = 1;
+// 			data->it = 0;
+// }

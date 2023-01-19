@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/18 16:08:20 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/19 14:52:33 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRACTOL_H
 
 # include <math.h>
-# include <mlx.h>
+# include "mlx/mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
 
@@ -30,20 +30,10 @@ typedef struct s_mlx
 	int					iterations;
 	int					x_width;
 	int					y_height;
-	int					col;
-	double				pi;
-	double				pr;
-	double				new_re;
-	double				new_im;
-	double				old_re;
-	double				old_im;
-	double				zoom;
-	double				move_x;
-	double				move_y;
-	int					y_index;
-	int					x_index;
+	int					std_col;
+	int					main_col;
+	int					dif_col;
 	int					it;
-	// TEST ZONE
 	double				min_re;
 	double				max_re;
 	double				min_im;
@@ -54,6 +44,8 @@ typedef struct s_mlx
 	double				c_re;
 	double				z_im;
 	double				z_re;
+	int					y;
+	int					x;
 }			t_mlx;
 
 // PROCESS INPUT
@@ -63,13 +55,19 @@ int				close(t_mlx *data);
 
 // Init
 t_mlx			*init_struct(void);
-t_mlx			*reset_values(t_mlx *data);
 t_mlx			*image_init(t_mlx *data);
+void			mandel_init(t_mlx *data);
 
 // Mandelbrot
 void			mandelbrot(t_mlx *data);
+void			mandel_calc(t_mlx *data);
 
 // Image
-void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
+void			my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
+void			my_mlx_color_put(t_mlx *data, int x, int y);
+
+// color
+void			color_shift(t_mlx *data);
+void			color(t_mlx *data, double shift);
 
 #endif

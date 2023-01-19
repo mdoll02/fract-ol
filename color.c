@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_image.c                                    :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 14:11:58 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/19 13:58:43 by mdoll            ###   ########.fr       */
+/*   Created: 2023/01/19 13:10:52 by mdoll             #+#    #+#             */
+/*   Updated: 2023/01/19 14:24:15 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./fractol.h"
 
-void	my_mlx_color_put(t_mlx *data, int x, int y)
+void	color_shift(t_mlx *data)
 {
-	color_shift(data);
-	my_mlx_pixel_put(data, x, y, data->dif_col);
+	double	shift;
+
+	shift = (double)round((data->it / data->iterations) * 255);
+	color(data, shift);
 }
 
-void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
+void	color(t_mlx *data, double shift)
 {
-	char	*dst;
-
-	dst = data->img_addr + (y * data->line_length + \
-		x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	shift = data->bits_per_pixel;
 }
