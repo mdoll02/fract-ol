@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:01:27 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/18 10:47:55 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/19 16:33:21 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ int	process_k_input(int keycode, t_mlx *data)
 	}
 	if (keycode == 53)
 	{
-		close(data);
+		ft_close(data);
 	}
 	return (0);
 }
 
-int	close(t_mlx *data)
+int	ft_close(t_mlx *data)
 {
 	mlx_destroy_window(data->mlx, data->win);
 	free(data);
+	write(2, "EXIT\n", 5);
 	exit(0);
 }

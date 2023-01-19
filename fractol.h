@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/19 14:52:33 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/19 16:33:03 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "mlx/mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_mlx
 {
@@ -51,7 +52,7 @@ typedef struct s_mlx
 // PROCESS INPUT
 int				process_k_input(int keycode, t_mlx *data);
 t_mlx			*init_struct(void);
-int				close(t_mlx *data);
+int				ft_close(t_mlx *data);
 
 // Init
 t_mlx			*init_struct(void);
@@ -61,6 +62,7 @@ void			mandel_init(t_mlx *data);
 // Mandelbrot
 void			mandelbrot(t_mlx *data);
 void			mandel_calc(t_mlx *data);
+void			mandel_calc_2(t_mlx *data);
 
 // Image
 void			my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
