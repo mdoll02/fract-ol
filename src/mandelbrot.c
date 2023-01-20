@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:27:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 15:24:02 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 15:41:19 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	mandelbrot(t_mlx *data)
 {	
+	printf("%d ->\t", data->it);
 	mandel_init(data);
+	printf("%d\n", data->it);
 	while (data->y < data->y_height)
 	{
 		data->c_im = data->max_im - data->y * data->im_factor;
@@ -28,7 +30,12 @@ void	mandelbrot(t_mlx *data)
 					break ;
 				mandel_calc_2(data);
 			}
-			my_mlx_pixel_put(data, data->x, data->y, data->std_col + \
+			if (data->it == data->iterations)
+				my_mlx_pixel_put(data, data->x, data->y, data->dif_col);
+			else if (data->it > data->iterations - 30)
+				my_mlx_pixel_put(data, data->x, data->y, 0x00ffffff);
+			else
+				my_mlx_pixel_put(data, data->x, data->y, data->std_col + \
 				0x00E79DB5 * data->it);
 			data->x++;
 		}

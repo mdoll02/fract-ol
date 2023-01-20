@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 10:02:01 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 14:03:58 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 15:34:11 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_mlx	*init_struct(void)
 	t_mlx	*data;
 
 	data = (t_mlx *)malloc(sizeof(t_mlx));
-	data->iterations = 350;
+	data->iterations = 80;
 	data->x_width = 1920;
 	data->y_height = 1080;
 	data->std_col = 0x009F91FF;
