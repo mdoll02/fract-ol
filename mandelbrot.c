@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:27:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/19 16:46:40 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 09:21:07 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void	mandel_init(t_mlx *data)
 {
 	data->x = 0;
 	data->y = 0;
-	data->min_re = -2.0;
-	data->max_re = 1.5;
-	data->min_im = -1.0;
+	data->min_re = -2.3;
+	data->max_re = 2.0;
+	data->min_im = -1.2;
 	data->max_im = data->min_im + (data->max_re - data->min_re) * \
-				data->y_height / data->x_width;
+		data->y_height / data->x_width;
 	data->re_factor = (data->max_re - data->min_re) / (data->x_width - 1);
 	data->im_factor = (data->max_im - data->min_im) / (data->y_height - 1);
 }
