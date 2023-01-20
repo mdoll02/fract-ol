@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:10:52 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 11:26:25 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 11:29:49 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	color_shift(t_mlx *data)
 	else
 		shift = data->iterations - data->it;
 	get_trgb(color, data->dif_col);
-	data->dif_col = (create_trgb(color->t + shift, color->r + shift, color->g \
-		+ shift, color->b + shift));
+	data->dif_col = (create_trgb(255 * shift, 255 + shift, 255 \
+		+ shift, 255 + shift));
 	free(color);
 	my_mlx_pixel_put(data, data->x, data->y, data->dif_col);
 }
