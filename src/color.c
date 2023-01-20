@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:10:52 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 11:38:28 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 14:22:04 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,13 @@ t_color	*init_color(void)
 
 void	color_shift(t_mlx *data)
 {
-	t_color	*color;
-	int		shift;
+	t_color		*color;
+	double		shift;
 
 	color = init_color();
-	if (data->it == 0)
-		shift = 0;
-	else
-		shift = data->iterations - data->it;
-	get_trgb(color, data->dif_col);
-	data->dif_col = (create_trgb(255 * shift, 255 + shift, 255 \
-		+ shift, 255 + shift));
+	shift = (double)round((data->it / data->iterations) * 64);
+	data->dif_col = create_trgb(shift);
+	printf("%x\n", data->dif_col);
 	free(color);
 	my_mlx_pixel_put(data, data->x, data->y, data->dif_col);
 }
@@ -48,9 +44,9 @@ void	get_trgb(t_color *color, int dif_col)
 	color->b = dif_col & 0xFF;
 }
 
-int	create_trgb(int t, int r, int g, int b)
+unsigned int	create_trgb(double shift)
 {
-	return (t << 24 | r << 16 | g << 8 | b);
+	return (0x000F0F0F + ((shift / 2) * 0x00080808));
 }
 
 void	color(t_mlx *data, double shift)

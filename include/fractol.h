@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 11:57:59 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 14:22:18 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,8 @@ typedef struct s_mlx
 	int					iterations;
 	int					x_width;
 	int					y_height;
-	int					std_col;
-	int					main_col;
-	int					dif_col;
+	unsigned int		std_col;
+	unsigned int		dif_col;
 	int					it;
 	double				min_re;
 	double				max_re;
@@ -81,6 +80,6 @@ void			my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 void			color_shift(t_mlx *data);
 void			color(t_mlx *data, double shift);
 void			get_trgb(t_color *color, int dif_col);
-int				create_trgb(int t, int r, int g, int b);
+unsigned int	create_trgb(double shift);
 
 #endif
