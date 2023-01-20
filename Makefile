@@ -71,6 +71,9 @@ ifeq ($(UNAME), Darwin)
 fclean:		clean
 			@ ${RM} ${NAME}
 			@ rm libmlx.a
+			@ rm libft.a
+			@ rm mlx/libmlx.a
+			@ rm libft/libft.a
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 endif
 
