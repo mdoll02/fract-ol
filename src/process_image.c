@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   process_image.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/18 10:47:36 by mdoll            ###   ########.fr       */
+/*   Created: 2023/01/18 14:11:58 by mdoll             #+#    #+#             */
+/*   Updated: 2023/01/20 10:59:28 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fractol.h"
+#include "../include/fractol.h"
 
-int	main(void)
+void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
 {
-	t_mlx	*data;
+	char	*dst;
 
-	data = init_struct();
-	mandelbrot(data);
-	mlx_key_hook(data->win, process_k_input, data);
-	mlx_hook(data->win, 17, 0, close, data);
-	mlx_loop(data->mlx);
+	dst = data->img_addr + (y * data->line_length + \
+		x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }

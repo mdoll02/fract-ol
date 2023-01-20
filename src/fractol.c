@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_image.c                                    :+:      :+:    :+:   */
+/*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 14:11:58 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/19 13:58:43 by mdoll            ###   ########.fr       */
+/*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
+/*   Updated: 2023/01/20 11:08:32 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fractol.h"
+#include "../include/fractol.h"
 
-void	my_mlx_color_put(t_mlx *data, int x, int y)
+int	main(void)
 {
-	color_shift(data);
-	my_mlx_pixel_put(data, x, y, data->dif_col);
-}
+	t_mlx	*data;
 
-void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->img_addr + (y * data->line_length + \
-		x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	data = init_struct();
+	mandelbrot(data);
+	mlx_key_hook(data->win, process_k_input, data);
+	mlx_hook(data->win, 17, 0, close, data);
+	mlx_loop(data->mlx);
 }

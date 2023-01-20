@@ -6,11 +6,11 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 10:02:01 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/19 16:53:27 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 11:11:58 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fractol.h"
+#include "../include/fractol.h"
 
 t_mlx	*init_struct(void)
 {

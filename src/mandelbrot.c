@@ -6,11 +6,11 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:27:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 09:21:07 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 10:53:16 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fractol.h"
+#include "../include/fractol.h"
 
 void	mandelbrot(t_mlx *data)
 {	
@@ -31,7 +31,7 @@ void	mandelbrot(t_mlx *data)
 			if (data->it == data->iterations)
 				my_mlx_pixel_put(data, data->x, data->y, data->std_col);
 			else
-				my_mlx_pixel_put(data, data->x, data->y, 0x00ff0000);
+				color_shift(data);
 			data->x++;
 		}
 		data->y++;

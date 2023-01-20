@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/19 16:33:03 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 11:12:31 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRACTOL_H
 
 # include <math.h>
-# include "mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -49,13 +49,21 @@ typedef struct s_mlx
 	int					x;
 }			t_mlx;
 
+typedef struct s_color
+{
+	int	t;
+	int	r;
+	int	g;
+	int	b;
+}			t_color;
+
 // PROCESS INPUT
 int				process_k_input(int keycode, t_mlx *data);
-t_mlx			*init_struct(void);
 int				ft_close(t_mlx *data);
 
 // Init
 t_mlx			*init_struct(void);
+t_color			*init_color(void);
 t_mlx			*image_init(t_mlx *data);
 void			mandel_init(t_mlx *data);
 
@@ -66,10 +74,11 @@ void			mandel_calc_2(t_mlx *data);
 
 // Image
 void			my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
-void			my_mlx_color_put(t_mlx *data, int x, int y);
 
 // color
 void			color_shift(t_mlx *data);
 void			color(t_mlx *data, double shift);
+void			get_trgb(t_color *color, int dif_col);
+int				create_trgb(int t, int r, int g, int b);
 
 #endif
