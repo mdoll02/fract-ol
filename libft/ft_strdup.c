@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 12:08:46 by mdoll            ###   ########.fr       */
+/*   Created: 2022/12/15 09:58:23 by mdoll             #+#    #+#             */
+/*   Updated: 2022/12/23 10:04:29 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "libft.h"
 
-int	main(void)
+// duplicates the string s1
+char	*ft_strdup(const char *s1)
 {
-	t_mlx	*data;
+	char				*copystr;
+	char				*str;
+	unsigned int		i;
 
-	data = init_struct();
-	mandelbrot(data);
-	change_interface(data);
-	mlx_key_hook(data->win, process_k_input, data);
-	mlx_hook(data->win, 17, 0, close, data);
-	mlx_loop(data->mlx);
+	str = (char *) s1;
+	i = ft_strlen(s1);
+	copystr = malloc(i * sizeof(char) + 1);
+	if (copystr == NULL)
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		copystr[i] = s1[i];
+		i++;
+	}
+	copystr[i] = '\0';
+	return (copystr);
 }

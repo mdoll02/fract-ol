@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 12:08:46 by mdoll            ###   ########.fr       */
+/*   Created: 2022/12/12 11:57:29 by mdoll             #+#    #+#             */
+/*   Updated: 2022/12/23 10:00:23 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "libft.h"
 
-int	main(void)
+// check if char is in the alphabet
+int	ft_isalpha(int c)
 {
-	t_mlx	*data;
-
-	data = init_struct();
-	mandelbrot(data);
-	change_interface(data);
-	mlx_key_hook(data->win, process_k_input, data);
-	mlx_hook(data->win, 17, 0, close, data);
-	mlx_loop(data->mlx);
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }

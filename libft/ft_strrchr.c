@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 12:08:46 by mdoll            ###   ########.fr       */
+/*   Created: 2022/12/13 14:37:16 by mdoll             #+#    #+#             */
+/*   Updated: 2022/12/23 10:07:34 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "libft.h"
 
-int	main(void)
+// will find the last occourence of (unsigned char) c in s
+char	*ft_strrchr(const char *s, int c)
 {
-	t_mlx	*data;
+	int				i;
+	char			*str;
+	unsigned char	uc;
 
-	data = init_struct();
-	mandelbrot(data);
-	change_interface(data);
-	mlx_key_hook(data->win, process_k_input, data);
-	mlx_hook(data->win, 17, 0, close, data);
-	mlx_loop(data->mlx);
+	str = (char *) s;
+	i = ft_strlen(s);
+	uc = (unsigned char) c;
+	while (i >= 0)
+	{
+		if (s[i] == uc)
+			return (str + i);
+		i--;
+	}
+	return (NULL);
 }

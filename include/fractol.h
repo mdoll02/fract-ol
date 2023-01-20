@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 11:31:50 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 11:57:59 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <math.h>
 # include "../mlx/mlx.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -60,6 +61,7 @@ typedef struct s_color
 // PROCESS INPUT
 int				process_k_input(int keycode, t_mlx *data);
 int				ft_close(t_mlx *data);
+void			change_interface(t_mlx *data);
 
 // Init
 t_mlx			*init_struct(void);

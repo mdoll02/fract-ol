@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 12:08:46 by mdoll            ###   ########.fr       */
+/*   Created: 2022/12/14 16:49:50 by mdoll             #+#    #+#             */
+/*   Updated: 2022/12/23 09:59:35 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "libft.h"
 
-int	main(void)
+// return a void * with size "size" and "count" amount of objects 
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_mlx	*data;
+	void			*returnp;
 
-	data = init_struct();
-	mandelbrot(data);
-	change_interface(data);
-	mlx_key_hook(data->win, process_k_input, data);
-	mlx_hook(data->win, 17, 0, close, data);
-	mlx_loop(data->mlx);
+	returnp = malloc(size * count);
+	if (returnp == NULL)
+		return (NULL);
+	ft_bzero(returnp, count * size);
+	return (returnp);
 }

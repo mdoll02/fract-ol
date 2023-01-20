@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 12:08:46 by mdoll            ###   ########.fr       */
+/*   Created: 2022/12/13 18:06:27 by mdoll             #+#    #+#             */
+/*   Updated: 2022/12/23 10:02:47 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "libft.h"
 
-int	main(void)
+// copies len bytes from src to dst. they may overlap
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	t_mlx	*data;
+	int	i;
 
-	data = init_struct();
-	mandelbrot(data);
-	change_interface(data);
-	mlx_key_hook(data->win, process_k_input, data);
-	mlx_hook(data->win, 17, 0, close, data);
-	mlx_loop(data->mlx);
+	i = len - 1;
+	if (dst == 0 && src == 0)
+		return (NULL);
+	if (src > dst)
+		ft_memcpy(dst, src, len);
+	else
+	{
+		while (0 <= i)
+		{
+			((char *) dst)[i] = ((char *) src)[i];
+			i--;
+		}
+	}
+	return (dst);
 }

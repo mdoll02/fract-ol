@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 12:08:46 by mdoll            ###   ########.fr       */
+/*   Created: 2022/12/13 14:20:24 by mdoll             #+#    #+#             */
+/*   Updated: 2022/12/23 10:04:07 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "libft.h"
 
-int	main(void)
+// locates the first occourence of (unsiged char) c in s
+char	*ft_strchr(const char *s, int c)
 {
-	t_mlx	*data;
+	int				i;
+	char			*str;
+	unsigned char	uc;
 
-	data = init_struct();
-	mandelbrot(data);
-	change_interface(data);
-	mlx_key_hook(data->win, process_k_input, data);
-	mlx_hook(data->win, 17, 0, close, data);
-	mlx_loop(data->mlx);
+	str = (char *) s;
+	i = 0;
+	uc = (unsigned char) c;
+	while (s[i])
+	{
+		if (s[i] == uc)
+			return (str + i);
+		i++;
+	}
+	if (uc == '\0')
+		return (str + i);
+	return (NULL);
 }

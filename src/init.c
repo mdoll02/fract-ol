@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 10:02:01 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 11:32:33 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/20 11:39:19 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ t_mlx	*init_struct(void)
 	data->iterations = 150;
 	data->x_width = 1920;
 	data->y_height = 1080;
-	data->std_col = 0x00000000;
-	data->main_col = 0x00000000;
+	data->std_col = 0x009F91FF;
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, data->x_width, data->y_height, \
 																"Fract-ol");
