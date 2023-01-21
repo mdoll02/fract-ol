@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:01:27 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/21 13:48:53 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/21 14:14:09 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	process_k_input(int keycode, t_mlx *data)
 {
-	if (keycode >= 18 && keycode <= 22)
+	if ((keycode >= 18 && keycode <= 21) || keycode == 23)
 		change_color(keycode, data);
 	if (keycode == 53)
 	{
