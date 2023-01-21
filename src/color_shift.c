@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:03:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/21 13:51:25 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/21 15:21:25 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,25 @@ int	blue_pallet(t_mlx *data)
 
 int	idk_wtf_this_is(t_mlx *data)
 {
-	double	b;
+	double		r;
+	double		g;
+	double		b;
+	double		m;
 
-	b = 255 - (255 / data->it);
-	return (create_trgb(0, b, b, b));
+	if (data->it < 20)
+		m = (double)data->it / data->iterations;
+	else
+		m = 2;
+	r = m * (sin(0.9 * data->it + 16) * 255 + 255);
+	g = m * (cos(0.5 * data->it + 8) * 255 + 255);
+	b = m * (sin(0.3 * data->it + 4) * 255 + 255);
+	return (create_trgb(0, r, g, b));
 }
 
 int	black_white(t_mlx *data)
 {
-	double			b;
-	unsigned char	tmp;
+	double	s;
 
-	b = 255 - (255 / (double)data->it);
-	tmp = (unsigned char)b;
-	return (create_trgb(0, tmp, tmp, tmp));
+	s = (double)data->it / (double)data->iterations;
+	return (create_trgb(0, s * 255, s * 255, s * 255));
 }

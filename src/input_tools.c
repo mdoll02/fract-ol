@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 10:42:56 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/21 14:13:59 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/21 14:18:15 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,5 @@ void	change_color(int keycode, t_mlx *data)
 	if (keycode == 23)
 		data->color_set = "bw";
 	mandelbrot(data);
+	change_interface(data);
 }
