@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:10:52 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 14:22:04 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/21 13:49:29 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,25 @@
 // Range of (r) 100 - 255 (g) 0 - 255 (b) 0 - 255 --> ca.656 colors?? 
 // (r) #800000 - ff0000 / (g) ff0000 - ffff00 / (b) ffff00 - ffffff
 
-t_color	*init_color(void)
+void	get_color(t_mlx *data)
 {
-	t_color	*color;
+	int	color;
 
-	color = (t_color *)malloc(sizeof(color));
-	return (color);
+	if (ft_strncmp(data->color_set, "red", 20) == 0)
+		color = red_pallet(data);
+	if (ft_strncmp(data->color_set, "green", 20) == 0)
+		color = green_pallet(data);
+	if (ft_strncmp(data->color_set, "blue", 20) == 0)
+		color = blue_pallet(data);
+	if (ft_strncmp(data->color_set, "idk", 20) == 0)
+		color = idk_wtf_this_is(data);
+	if (ft_strncmp(data->color_set, "bw", 20) == 0)
+		color = black_white(data);
+	my_mlx_pixel_put(data, data->x, data->y, color);
 }
 
-void	color_shift(t_mlx *data)
+int	create_trgb(int t, int r, int g, int b)
 {
-	t_color		*color;
-	double		shift;
-
-	color = init_color();
-	shift = (double)round((data->it / data->iterations) * 64);
-	data->dif_col = create_trgb(shift);
-	printf("%x\n", data->dif_col);
-	free(color);
-	my_mlx_pixel_put(data, data->x, data->y, data->dif_col);
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-void	get_trgb(t_color *color, int dif_col)
-{
-	color->t = dif_col >> 24 & 0xFF;
-	color->r = dif_col >> 16 & 0xFF;
-	color->g = dif_col >> 8 & 0xFF;
-	color->b = dif_col & 0xFF;
-}
-
-unsigned int	create_trgb(double shift)
-{
-	return (0x000F0F0F + ((shift / 2) * 0x00080808));
-}
-
-void	color(t_mlx *data, double shift)
-{
-	shift = data->bits_per_pixel;
-}

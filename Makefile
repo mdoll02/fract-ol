@@ -2,8 +2,8 @@ NAME        := fractol
 CC        := gcc
 FLAGS    := -Wall -Wextra -Werror
 
-SRCS        :=      src/fractol.c  src/process_input.c src/mandelbrot.c src/init.c src/process_image.c src/color.c \
-
+SRCS        :=      src/fractol.c  src/process_input.c src/mandelbrot.c src/init.c src/process_image.c src/color.c src/input_tools.c\
+						src/color_shift.c
 OBJDIR := obj
 
 

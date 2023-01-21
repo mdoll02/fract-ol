@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/20 14:22:18 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/21 13:46:14 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_mlx
 	void				*win;
 	void				*img;
 	char				*img_addr;
+	char				*color_set;
 	int					bits_per_pixel;
 	int					line_length;
 	int					endian;
@@ -59,12 +60,16 @@ typedef struct s_color
 
 // PROCESS INPUT
 int				process_k_input(int keycode, t_mlx *data);
+int				process_m_input(int keycode, int x, int y, t_mlx *data);
+
+// INPUT TOOLS
+void			zoom(t_mlx *data, int x, int y, int direction);
 int				ft_close(t_mlx *data);
 void			change_interface(t_mlx *data);
+void			change_color(int keycode, t_mlx *data);
 
 // Init
-t_mlx			*init_struct(void);
-t_color			*init_color(void);
+t_mlx			*init_struct(char **argv, int argc);
 t_mlx			*image_init(t_mlx *data);
 void			mandel_init(t_mlx *data);
 
@@ -77,9 +82,14 @@ void			mandel_calc_2(t_mlx *data);
 void			my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 
 // color
-void			color_shift(t_mlx *data);
-void			color(t_mlx *data, double shift);
-void			get_trgb(t_color *color, int dif_col);
-unsigned int	create_trgb(double shift);
+void			get_color(t_mlx *data);
+int				create_trgb(int t, int r, int g, int b);
+
+// color pallet
+int				red_pallet(t_mlx *data);
+int				green_pallet(t_mlx *data);
+int				blue_pallet(t_mlx *data);
+int				idk_wtf_this_is(t_mlx *data);
+int				black_white(t_mlx *data);
 
 #endif
