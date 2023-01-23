@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:27:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/21 15:11:17 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 13:50:15 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,9 @@ void	mandelbrot(t_mlx *data)
 		while (data->x < data->x_width)
 		{
 			mandel_calc(data);
-			while (data->it < data->iterations)
-			{
-				if ((data->z_re * data->z_re) + (data->z_im * data->z_im) > 4)
-					break ;
+			while (data->it < data->iterations && (data->z_re * data->z_re) + \
+				(data->z_im * data->z_im) <= 4)
 				mandel_calc_2(data);
-			}
 			if (data->it == data->iterations)
 				my_mlx_pixel_put(data, data->x, data->y, data->std_col);
 			else

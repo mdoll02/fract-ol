@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 10:02:01 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/21 15:11:21 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 13:41:57 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,15 @@ t_mlx	*init_struct(char **argv, int argc)
 		data->color_set = argv[2];
 	else
 		data->color_set = "red";
-	printf("%s\n", data->color_set);
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, data->x_width, data->y_height, \
 																"Fract-ol");
-	data->min_re = -2.3; // left border
-	data->max_re = 2.0; // right border
-	data->min_im = -1.2; // bottom border
-	data->max_im = 1.21; // upper border
+	data->min_re = -2.3;
+	data->max_re = 2.0;
+	data->min_im = -1.2;
+	data->max_im = data->min_im + (data->max_re - data->min_re) \
+		* data->y_height / data->x_width;
 	data = image_init(data);
-	printf("finished init\n");
 	return (data);
 }
 

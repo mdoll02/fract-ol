@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:01:27 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/21 14:14:09 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 13:33:52 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,11 @@ int	process_m_input(int keycode, int x, int y, t_mlx *data)
 	if (keycode == 4)
 	{
 		zoom(data, x, y, -1);
-		mandelbrot(data);
 	}
 	else if (keycode == 5)
 	{
 		zoom(data, x, y, 1);
-		mandelbrot(data);
 	}
+	mandelbrot(data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/21 15:11:27 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 13:34:05 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,6 @@ typedef struct s_mlx
 	int					y;
 	int					x;
 }			t_mlx;
-
-typedef struct s_color
-{
-	int	t;
-	int	r;
-	int	g;
-	int	b;
-}			t_color;
 
 // PROCESS INPUT
 int				process_k_input(int keycode, t_mlx *data);

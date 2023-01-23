@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/21 13:42:03 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 14:10:07 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	mandelbrot(data);
 	change_interface(data);
 	mlx_key_hook(data->win, process_k_input, data);
-	mlx_hook(data->win, 17, 0, close, data);
+	mlx_hook(data->win, 17, 0, ft_close, data);
 	mlx_mouse_hook(data->win, process_m_input, data);
 	mlx_loop(data->mlx);
 }
