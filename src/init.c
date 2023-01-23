@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 10:02:01 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/23 13:41:57 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 15:10:45 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ t_mlx	*init_struct(char **argv, int argc)
 	t_mlx	*data;
 
 	data = (t_mlx *)malloc(sizeof(t_mlx));
-	data->iterations = 80;
+	data->iterations = 91;
 	if (argc >= 2)
 		data->x_width = ft_atoi(argv[1]);
 	else
-		data->x_width = 1920;
+		data->x_width = 1024;
 	data->y_height = data->x_width / 1.7777;
 	data->std_col = 0x00000000;
 	if (argc == 3)

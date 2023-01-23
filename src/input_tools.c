@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 10:42:56 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/23 14:28:08 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 14:43:32 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	zoom(t_mlx *data, int x, int y, int direction)
 		data->max_im = (data->max_im + ((dy * y) * 0.5));
 		data->min_im = (data->min_im -((dy * (data->y_height - y) * 0.5)));
 	}
-	change_interface(data);
 }
 
 void	change_color(int keycode, t_mlx *data)

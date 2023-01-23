@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:27:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/23 13:50:15 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 15:14:12 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	mandelbrot(t_mlx *data)
 {
+	mlx_clear_window(data->mlx, data->win);
 	mandel_init(data);
 	while (data->y < data->y_height)
 	{

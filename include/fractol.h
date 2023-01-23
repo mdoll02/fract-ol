@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/23 13:34:05 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 15:41:35 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ int				green_pallet(t_mlx *data);
 int				blue_pallet(t_mlx *data);
 int				idk_wtf_this_is(t_mlx *data);
 int				black_white(t_mlx *data);
+int				smooth_color(t_mlx *data);
 
 #endif

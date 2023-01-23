@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:01:27 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/23 13:33:52 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 14:43:21 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int	process_m_input(int keycode, int x, int y, t_mlx *data)
 		zoom(data, x, y, 1);
 	}
 	mandelbrot(data);
+	change_interface(data);
 	return (0);
 }

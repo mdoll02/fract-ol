@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:03:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/21 15:21:25 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/23 15:53:00 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int	idk_wtf_this_is(t_mlx *data)
 		m = (double)data->it / data->iterations;
 	else
 		m = 2;
-	r = m * (sin(0.9 * data->it + 16) * 255 + 255);
-	g = m * (cos(0.5 * data->it + 8) * 255 + 255);
+	r = m * pow((sin(0.9 * data->it + 16) * 255 + 255), 2);
+	g = m * pow((sin(0.5 * data->it + 8) * 255 + 255), 2);
 	b = m * (sin(0.3 * data->it + 4) * 255 + 255);
 	return (create_trgb(0, r, g, b));
 }
