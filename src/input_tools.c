@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 10:42:56 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/23 14:43:32 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/24 12:42:57 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ void	change_color(int keycode, t_mlx *data)
 		data->color_set = "idk";
 	if (keycode == 23)
 		data->color_set = "bw";
-	mandelbrot(data);
+	choose_set(data);
 	change_interface(data);
+}
+
+void	choose_set(t_mlx *data)
+{
+	if (data->fractal == 0)
+		mandelbrot(data);
+	if (data->fractal == 1)
+		julia(data);
 }

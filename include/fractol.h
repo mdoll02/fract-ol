@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/24 10:26:01 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/24 13:50:28 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_mlx
 	int					x_width;
 	int					y_height;
 	unsigned int		std_col;
-	unsigned int		dif_col;
 	int					it;
 	double				min_re;
 	double				max_re;
@@ -49,6 +48,7 @@ typedef struct s_mlx
 	int					y;
 	int					x;
 	int					fractal;
+	double				k;
 }			t_mlx;
 
 // PROCESS INPUT
@@ -60,17 +60,25 @@ void			zoom(t_mlx *data, int x, int y, int direction);
 int				ft_close(t_mlx *data);
 void			change_interface(t_mlx *data);
 void			change_color(int keycode, t_mlx *data);
+void			choose_set(t_mlx *data);
 
 // Init
 t_mlx			*init_struct(int argc, char **argv);
 t_mlx			*image_init(t_mlx *data);
-void			mandel_init(t_mlx *data);
 t_mlx			*set_mandel_params(t_mlx *data);
+t_mlx			*set_julia_params(t_mlx *data);
 
 // Mandelbrot
 void			mandelbrot(t_mlx *data);
+void			mandel_init(t_mlx *data);
 void			mandel_calc(t_mlx *data);
 void			mandel_calc_2(t_mlx *data);
+
+// Julia
+void			julia(t_mlx *data);
+void			julia_init(t_mlx *data);
+void			julia_calc(t_mlx *data);
+void			julia_calc_2(t_mlx *data);
 
 // Image
 void			my_mlx_pixel_put(t_mlx *data, int x, int y, int color);

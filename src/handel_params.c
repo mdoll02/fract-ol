@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 09:31:30 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/24 11:08:53 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/24 14:28:10 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	check_parameters(int argc, char **argv)
 	return (1);
 }
 
+// Check all of the numbers for non numbers!!
 int	compare_parameters(int argc, char **argv)
 {
 	int	sum_fract;
@@ -34,11 +35,18 @@ int	compare_parameters(int argc, char **argv)
 	sum_col = ft_strncmp(argv[2], "red", 20) * ft_strncmp(argv[2], "green", 20) \
 		* ft_strncmp(argv[2], "blue", 20) * ft_strncmp(argv[2], "idk", 20) * \
 			ft_strncmp(argv[2], "bw", 20);
-	if (!ft_atoi(argv[argc - 1]) || ft_atoi(argv[argc - 1]) > 1440 \
-		|| ft_atoi(argv[argc - 1]) < 480)
+	if (!ft_atoi(argv[3]) || ft_atoi(argv[3]) > 1440 \
+		|| ft_atoi(argv[3]) < 480)
 		return (-1);
 	if (sum_fract != 0 || sum_col != 0)
 		return (-1);
+	if (argc == 5)
+	{
+		if (ft_strncmp(argv[4], "julia", 20) != 0 && !ft_atoi(argv[4]) && ft_atoi(argv[4]) < 81 && ft_atoi(argv[4]) > 0)
+		{
+			return (-1);
+		}
+	}
 	return (1);
 }
 
