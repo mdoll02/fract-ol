@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/23 15:41:35 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/24 10:26:01 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_mlx
 	double				z_re;
 	int					y;
 	int					x;
+	int					fractal;
 }			t_mlx;
 
 // PROCESS INPUT
@@ -61,9 +62,10 @@ void			change_interface(t_mlx *data);
 void			change_color(int keycode, t_mlx *data);
 
 // Init
-t_mlx			*init_struct(char **argv, int argc);
+t_mlx			*init_struct(int argc, char **argv);
 t_mlx			*image_init(t_mlx *data);
 void			mandel_init(t_mlx *data);
+t_mlx			*set_mandel_params(t_mlx *data);
 
 // Mandelbrot
 void			mandelbrot(t_mlx *data);
@@ -83,6 +85,10 @@ int				green_pallet(t_mlx *data);
 int				blue_pallet(t_mlx *data);
 int				idk_wtf_this_is(t_mlx *data);
 int				black_white(t_mlx *data);
-int				smooth_color(t_mlx *data);
+
+// handel parameter
+int				check_parameters(int argc, char **argv);
+int				compare_parameters(int argc, char **argv);
+void			print_param_options(void);
 
 #endif
