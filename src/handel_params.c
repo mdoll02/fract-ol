@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 09:31:30 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/24 14:28:10 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/24 16:51:33 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ int	compare_parameters(int argc, char **argv)
 		return (-1);
 	if (argc == 5)
 	{
-		if (ft_strncmp(argv[4], "julia", 20) != 0 && !ft_atoi(argv[4]) && ft_atoi(argv[4]) < 81 && ft_atoi(argv[4]) > 0)
-		{
+		if (ft_strncmp(argv[4], "julia", 20) == 0 && !ft_atoi(argv[4]) && \
+			ft_atoi(argv[4]) > 80 && ft_atoi(argv[4]) > 0)
+			return (1);
+		else
 			return (-1);
-		}
 	}
 	return (1);
 }
@@ -56,4 +57,5 @@ void	print_param_options(void)
 	write(1, "1. Paramter: Fractal\nmandelbrot / julia\n", 41);
 	write(1, "2. Parameter: Color set\nred / green / blue / idk / bw\n", 55);
 	write(1, "3. Parameter: Width\n480 <-> 1440\n", 34);
+	write(1, "4. Parameter: Only for Julia set\n 1 <-> 80\n", 43);
 }
