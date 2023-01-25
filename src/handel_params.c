@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 09:31:30 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/24 16:51:33 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/25 10:27:04 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	compare_parameters(int argc, char **argv)
 	if (argc < 4 || argc > 5)
 		return (-1);
 	sum_fract = ft_strncmp(argv[1], "mandelbrot", 20) * \
-		ft_strncmp(argv[1], "julia", 20);
+		ft_strncmp(argv[1], "julia", 20) * \
+		ft_strncmp(argv[1], "burning ship", 20);
 	sum_col = ft_strncmp(argv[2], "red", 20) * ft_strncmp(argv[2], "green", 20) \
 		* ft_strncmp(argv[2], "blue", 20) * ft_strncmp(argv[2], "idk", 20) * \
 			ft_strncmp(argv[2], "bw", 20);

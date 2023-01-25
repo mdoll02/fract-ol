@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 10:02:01 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/24 14:02:38 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/25 11:26:50 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,40 +26,64 @@ t_mlx	*init_struct(int argc, char **argv)
 	data->color_set = argv[2];
 	data->std_col = 0x00000000;
 	if (ft_strncmp(argv[1], "mandelbrot", 20) == 0)
-	{
-		data->fractal = 0;
 		set_mandel_params(data);
-	}
 	if (ft_strncmp(argv[1], "julia", 20) == 0)
 	{
-		data->fractal = 1;
 		set_julia_params(data);
 		if (argc == 5)
 			data->k = (double)ft_atoi(argv[4]) * 0.0123456789;
 		else
 			data->k = 0.4042832;
 	}
+	if (ft_strncmp(argv[1], "burning ship", 20) == 0)
+		set_burning_ship_params(data);
 	return (data);
 }
 
 t_mlx	*set_mandel_params(t_mlx *data)
 {
+	data->fractal = 0;
 	data->min_re = -2.510;
 	data->max_re = 2.0;
 	data->min_im = -1.2;
 	data->max_im = data->min_im + (data->max_re - data->min_re) \
 		* data->y_height / data->x_width;
+	data->tmp_array[0] = data->min_re;
+	data->tmp_array[1] = data->max_re;
+	data->tmp_array[2] = data->min_im;
+	data->tmp_array[3] = data->max_im;
+	return (data);
+}
+
+t_mlx	*set_burning_ship_params(t_mlx *data)
+{
+	data->fractal = 2;
+	data->min_re = 3.00255;
+	data->max_re = -2.862231;
+	data->min_im = 0.953864;
+	data->max_im = data->min_im + (data->max_re - data->min_re) \
+		* data->y_height / data->x_width;
+	data->tmp_array[0] = data->min_re;
+	data->tmp_array[1] = data->max_re;
+	data->tmp_array[2] = data->min_im;
+	data->tmp_array[3] = data->max_im;
 	return (data);
 }
 
 t_mlx	*set_julia_params(t_mlx *data)
 {
+	data->fractal = 1;
 	data->min_re = -2.3;
 	data->max_re = 2.2077;
 	data->min_im = -1.689;
 	data->max_im = data->min_im + (data->max_re - data->min_re) \
 		* data->y_height / data->x_width;
 	data->k = 0.82942;
+	data->tmp_array[0] = data->min_re;
+	data->tmp_array[1] = data->max_re;
+	data->tmp_array[2] = data->min_im;
+	data->tmp_array[3] = data->max_im;
+	data->tmp_array[4] = data->k;
 	return (data);
 }
 

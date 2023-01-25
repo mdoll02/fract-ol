@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 10:42:56 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/24 12:42:57 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/25 11:27:00 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ void	change_interface(t_mlx *data)
 	free(iterations_string);
 }
 
-int	ft_close(t_mlx *data)
+void	reset_values(t_mlx *data)
 {
-	mlx_destroy_window(data->mlx, data->win);
-	mlx_destroy_image(data->mlx, data->img);
-	free(data);
-	write(2, "EXIT\n", 5);
-	exit(0);
+	data->min_re = data->tmp_array[0];
+	data->max_re = data->tmp_array[1];
+	data->min_im = data->tmp_array[2];
+	data->max_im = data->tmp_array[3];
+	if (data->fractal == 1)
+		data->k = data->tmp_array[4];
 }
 
 void	zoom(t_mlx *data, int x, int y, int direction)
@@ -76,4 +77,6 @@ void	choose_set(t_mlx *data)
 		mandelbrot(data);
 	if (data->fractal == 1)
 		julia(data);
+	if (data->fractal == 2)
+		burning_ship(data);
 }

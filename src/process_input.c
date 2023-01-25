@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:01:27 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/24 12:16:25 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/25 09:35:30 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@ int	process_k_input(int keycode, t_mlx *data)
 	if ((keycode >= 18 && keycode <= 21) || keycode == 23)
 		change_color(keycode, data);
 	if (keycode == 53)
-	{
 		ft_close(data);
-	}
 	if (keycode == 30)
 	{
 		data->iterations += 5;
 		choose_set(data);
-		change_interface(data);
 	}
 	if (keycode == 44)
 	{
@@ -32,9 +29,14 @@ int	process_k_input(int keycode, t_mlx *data)
 		{
 			data->iterations -= 5;
 			choose_set(data);
-			change_interface(data);
 		}
 	}
+	if (keycode == 15)
+	{
+		reset_values(data);
+		choose_set(data);
+	}
+	change_interface(data);
 	return (0);
 }
 
@@ -48,7 +50,20 @@ int	process_m_input(int keycode, int x, int y, t_mlx *data)
 	{
 		zoom(data, x, y, 1);
 	}
+	else if (keycode == 1)
+	{
+		data->k = (x / (double)data->x_width) * (y / (double)data->y_height);
+	}
 	choose_set(data);
 	change_interface(data);
 	return (0);
+}
+
+int	ft_close(t_mlx *data)
+{
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_image(data->mlx, data->img);
+	free(data);
+	write(2, "EXIT\n", 5);
+	exit(0);
 }
