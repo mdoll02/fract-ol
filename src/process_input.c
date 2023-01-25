@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:01:27 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/25 09:35:30 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/25 16:15:30 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ int	process_k_input(int keycode, t_mlx *data)
 		}
 	}
 	if (keycode == 15)
-	{
 		reset_values(data);
-		choose_set(data);
-	}
+	if (keycode >= 123 && keycode <= 126)
+		move(data, keycode);
 	change_interface(data);
 	return (0);
 }

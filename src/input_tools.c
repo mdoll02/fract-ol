@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 10:42:56 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/25 11:27:00 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/25 16:12:16 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	reset_values(t_mlx *data)
 	data->max_im = data->tmp_array[3];
 	if (data->fractal == 1)
 		data->k = data->tmp_array[4];
+	choose_set(data);
 }
 
 void	zoom(t_mlx *data, int x, int y, int direction)
