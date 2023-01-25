@@ -1,0 +1,54 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/25 13:31:43 by mdoll             #+#    #+#              #
+#    Updated: 2023/01/25 14:35:12 by mdoll            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME := fractol
+
+SRC := src/fractol.c  src/process_input.c src/mandelbrot.c src/init.c src/process_image.c src/color.c src/input_tools.c\
+		src/color_shift.c src/handel_params.c src/julia.c src/burning_ship.c
+
+CC := gcc
+
+
+OBJ := $(SRC:.c=.o)
+
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+CFLAGS := -Wall -Wextra -Werror
+
+$(NAME): $(OBJ)
+		@ $(MAKE) -C mlx all >/dev/null 2>&1
+		@ cp ./mlx/libmlx.a .
+		@ $(MAKE) -C libft all >/dev/null 2>&1
+		@ cp ./libft/libft.a .
+		$(CC) $(CFLAGS) -g3 -O3 -Ofast -o $(NAME) -Imlx $(OBJS) libft.a libmlx.a -lm -framework OpenGL -framework AppKit
+
+# @make -C ./libft all >/dev/null 2>&1
+# @cp libft/libft.a .
+# @make -C ./mlx all >/dev/null 2>&1
+# @cp mlx/libmlx.a .
+# $(CC) $(CFLAGS) -g3 -o $(NAME) -Imlx $(OBJS) libft.a -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
+
+
+all: $(NAME)
+
+
+clean:
+	@rm -rf $(OBJ)
+	@make clean -C ./libft
+	@make clean -C ./mlx
+
+fclean: clean
+	@rm -rf $(NAME)
+	@make fclean -C ./libft
+	@rm -rf libft.a
+	@rm -rf libmlx.a
