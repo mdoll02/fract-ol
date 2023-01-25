@@ -21,10 +21,10 @@ $(NAME): $(OBJS)
 	@ $(MAKE) -C libft all >/dev/null 2>&1
 	@ cp ./libft/libft.a .
 	@ echo "\033[1;33m			..."
-	@ $(CC) $(CFLAGS) -g3 -Ofast -o $(NAME) $(OBJS) libft.a libmlx.a -lm -framework OpenGL -framework AppKit
+	@ $(CC) $(CFLAGS) -Ofast -o $(NAME) $(OBJS) libft.a libmlx.a -lm -framework OpenGL -framework AppKit
 	@ echo "\033[1;32m				finished compiling."
 	@ echo " "
-	@ echo "\033[1;34mUse ./fractol to run the progam"
+	@ echo "\033[1;34mUse ./fractol to run the progam[0m"
 
 all:		${NAME}
 
@@ -41,5 +41,9 @@ fclean:	clean
 	@ rm libft.a
 
 re:			fclean all
+
+fract: all
+	@ echo " "
+	@ make clean
 
 .PHONY:		all clean fclean re
