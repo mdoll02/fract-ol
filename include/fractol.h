@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/25 16:18:38 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/26 10:00:38 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include <stdlib.h>
-# include <stdio.h>
 # include <unistd.h>
 
 typedef struct s_mlx
@@ -114,5 +113,6 @@ int				black_white(t_mlx *data);
 int				check_parameters(int argc, char **argv);
 int				compare_parameters(int argc, char **argv);
 void			print_param_options(void);
+void			display_help_message(void);
 
 #endif

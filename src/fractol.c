@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:56:25 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/24 13:50:39 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/26 10:00:41 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 	if (check_parameters(argc, argv) == -1)
 		return (-1);
 	data = init_struct(argc, argv);
+	display_help_message();
 	choose_set(data);
 	change_interface(data);
 	mlx_key_hook(data->win, process_k_input, data);

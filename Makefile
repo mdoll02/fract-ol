@@ -37,8 +37,8 @@ clean:
 fclean:	clean
 	@ ${RM} ${NAME}
 	@ make fclean -C ./libft
-	@ rm libmlx.a
-	@ rm libft.a
+	@ ${RM} libmlx.a
+	@ ${RM} libft.a
 
 re:			fclean all
 

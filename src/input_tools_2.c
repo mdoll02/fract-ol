@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:14:04 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/25 16:24:53 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/26 08:30:19 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,36 @@ void	move(t_mlx *data, int keycode)
 
 void	move_left(t_mlx *data)
 {
-	data->min_re -= 0.001;
-	data->max_re -= 0.001;
+	double	tmp_re;
+
+	tmp_re = (data->max_re - data->min_re) * (-1);
+	data->min_re += tmp_re / 8.5;
+	data->max_re += tmp_re / 8.5;
 }
 
 void	move_right(t_mlx *data)
 {
-	data->min_re += 0.001;
-	data->max_re += 0.001;
+	double	tmp_re;
+
+	tmp_re = (data->max_re - data->min_re);
+	data->min_re += tmp_re / 8.5;
+	data->max_re += tmp_re / 8.5;
 }
 
 void	move_down(t_mlx *data)
 {
-	data->min_im -= 0.001;
-	data->max_im -= 0.001;
+	double	tmp_im;
+
+	tmp_im = (data->max_im - data->min_im) * (-1);
+	data->min_im += tmp_im / 8.5;
+	data->max_im += tmp_im / 8.5;
 }
 
 void	move_up(t_mlx *data)
 {
-	data->min_im += 0.001;
-	data->max_im += 0.001;
+	double	tmp_im;
+
+	tmp_im = (data->max_im - data->min_im);
+	data->min_im += tmp_im / 8.5;
+	data->max_im += tmp_im / 8.5;
 }
