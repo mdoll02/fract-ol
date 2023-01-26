@@ -6,13 +6,13 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:14:04 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/26 08:30:19 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/26 11:49:45 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-void	move(t_mlx *data, int keycode)
+void	ft_move(t_mlx *data, int keycode)
 {
 	if (keycode == 123)
 		move_left(data);

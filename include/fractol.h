@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:11:43 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/26 10:00:38 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/26 11:50:07 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void			choose_set(t_mlx *data);
 void			reset_values(t_mlx *data);
 
 // INPUT TOOLS PART 2
-void			move(t_mlx *data, int keycode);
+void			ft_move(t_mlx *data, int keycode);
 void			move_left(t_mlx *data);
 void			move_right(t_mlx *data);
 void			move_down(t_mlx *data);

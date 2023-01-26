@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:01:27 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/25 16:15:30 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/26 11:49:55 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	process_k_input(int keycode, t_mlx *data)
 	if (keycode == 15)
 		reset_values(data);
 	if (keycode >= 123 && keycode <= 126)
-		move(data, keycode);
+		ft_move(data, keycode);
 	change_interface(data);
 	return (0);
 }
@@ -63,6 +63,5 @@ int	ft_close(t_mlx *data)
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_image(data->mlx, data->img);
 	free(data);
-	write(2, "EXIT\n", 5);
 	exit(0);
 }

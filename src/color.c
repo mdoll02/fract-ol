@@ -6,19 +6,17 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:10:52 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/23 15:51:35 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/26 11:54:45 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-// Range of (r) 100 - 255 (g) 0 - 255 (b) 0 - 255 --> ca.656 colors?? 
-// (r) #800000 - ff0000 / (g) ff0000 - ffff00 / (b) ffff00 - ffffff
-
 void	get_color(t_mlx *data)
 {
 	int	color;
 
+	color = 0;
 	if (ft_strncmp(data->color_set, "red", 20) == 0)
 		color = red_pallet(data);
 	if (ft_strncmp(data->color_set, "green", 20) == 0)

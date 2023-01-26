@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 09:31:30 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/26 10:08:55 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/26 11:52:54 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,23 @@ int	compare_parameters(int argc, char **argv)
 
 void	print_param_options(void)
 {
-	write(1, "----------Wrong Input----------\n", 32);
-	write(1, "1. Paramter: Fractal\nmandelbrot / julia / burning ship"\
-			" (you need to wirte it in double quotes)\n", 96);
-	write(1, "2. Parameter: Color set\nred / green / blue / idk / bw\n", 55);
-	write(1, "3. Parameter: Width\n480 <-> 1440\n", 34);
-	write(1, "4. Parameter: Only for Julia set\n 20 <-> 40\n", 45);
+	int	ret;
+
+	ret = write(1, "----------Wrong Input----------\n"\
+			"1. Paramter: Fractal\nmandelbrot / julia / burning ship"\
+			" (you need to wirte it in double quotes)\n"\
+			"2. Parameter: Color set\nred / green / blue / idk / bw\n"\
+			"3. Parameter: Width\n480 <-> 1440\n"\
+			"4. Parameter: Only for Julia set\n 20 <-> 40\n", 258);
+	if (ret != 258)
+		exit(0);
 }
 
 void	display_help_message(void)
 {
-	write(1, "----------HELP----------\n"\
+	int	ret;
+
+	ret = write(1, "----------HELP----------\n"\
 			"Use: 1 / 2 / 3 / 4 / 5 \t\tto change the color set\n"\
 			"Use: r \t\t\t\tto reset the fractal position\n"\
 			"Use: left mouse-button \t\tclick into the mlx"\
@@ -70,4 +76,6 @@ void	display_help_message(void)
 			"Use: + / - \t\t\tto increase / decrease the number"\
 			" of iterations\n"\
 			"Use: scroll-wheel\t\tto zoom in / out\n", 331);
+	if (ret != 331)
+		exit(0);
 }
