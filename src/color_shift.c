@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:03:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/26 10:18:17 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/30 13:53:35 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	red_pallet(t_mlx *data)
 		r = 255;
 	else
 		r = data->it * 17;
-	g = data->it * 5;
+	g = data->it * 3;
 	return (create_trgb(0, r, g, 0));
 }
 
@@ -34,7 +34,7 @@ int	green_pallet(t_mlx *data)
 		g = 255;
 	else
 		g = data->it * 17;
-	b = data->it * 5;
+	b = data->it * 3;
 	return (create_trgb(0, 0, g, b));
 }
 
@@ -47,7 +47,7 @@ int	blue_pallet(t_mlx *data)
 		b = 255;
 	else
 		b = data->it * 17;
-	r = data->it * 5;
+	r = data->it * 4;
 	return (create_trgb(0, r, 0, b));
 }
 

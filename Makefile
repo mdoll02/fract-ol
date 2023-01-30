@@ -8,8 +8,8 @@ SRCS	:=      src/fractol.c  src/process_input.c src/mandelbrot.c src/init.c src/
 
 OBJS	:= $(SRCS:.c=.o)
 
-.c.o:
-	@ ${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+%.o: %.c
+	@ $(CC) -c $(CFLAGS) $< -o ${<:.c=.o}
 
 RM		    := rm -f
 

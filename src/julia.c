@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:27:42 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/24 12:24:36 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/30 12:27:18 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	julia(t_mlx *data)
 	julia_init(data);
 	while (data->y < data->y_height)
 	{
-		data->c_im = data->max_im - data->y * data->im_factor + data->k;
 		data->x = 0;
 		while (data->x < data->x_width)
 		{
@@ -47,6 +46,7 @@ void	julia_init(t_mlx *data)
 
 void	julia_calc(t_mlx *data)
 {
+	data->c_im = data->max_im - data->y * data->im_factor + data->k;
 	data->c_re = data->min_re + data->x * data->re_factor + data->k;
 	data->z_re = data->c_re;
 	data->z_im = data->c_im;

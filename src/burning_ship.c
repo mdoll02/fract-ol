@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 09:53:38 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/25 11:17:55 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/30 12:27:28 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	burning_ship(t_mlx *data)
 	burning_ship_init(data);
 	while (data->y < data->y_height)
 	{
-		data->c_im = data->max_im - data->y * data->im_factor;
 		data->x = 0;
 		while (data->x < data->x_width)
 		{
@@ -47,6 +46,7 @@ void	burning_ship_init(t_mlx *data)
 
 void	burning_ship_calc(t_mlx *data)
 {
+	data->c_im = data->max_im - data->y * data->im_factor;
 	data->c_re = data->min_re + data->x * data->re_factor;
 	data->z_re = data->c_re;
 	data->z_im = data->c_im;

@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 09:31:30 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/26 11:52:54 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/30 13:31:47 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	compare_parameters(int argc, char **argv)
 
 	if (argc < 4 || argc > 5)
 		return (-1);
-	sum_fract = ft_strncmp(argv[1], "mandelbrot", 20) * \
-		ft_strncmp(argv[1], "julia", 20) * \
-		ft_strncmp(argv[1], "burning ship", 20);
-	sum_col = ft_strncmp(argv[2], "red", 20) * ft_strncmp(argv[2], "green", 20) \
-		* ft_strncmp(argv[2], "blue", 20) * ft_strncmp(argv[2], "idk", 20) * \
-			ft_strncmp(argv[2], "bw", 20);
+	sum_fract = ft_strncmp(argv[1], "mandelbrot", 10) * \
+		ft_strncmp(argv[1], "julia", 5) * \
+		ft_strncmp(argv[1], "burning ship", 12);
+	sum_col = ft_strncmp(argv[2], "red", 3) * ft_strncmp(argv[2], "green", 5) \
+		* ft_strncmp(argv[2], "blue", 4) * ft_strncmp(argv[2], "idk", 3) * \
+			ft_strncmp(argv[2], "bw", 2);
 	if (!ft_atoi(argv[3]) || ft_atoi(argv[3]) > 1440 \
 		|| ft_atoi(argv[3]) < 480)
 		return (-1);
@@ -42,7 +42,7 @@ int	compare_parameters(int argc, char **argv)
 		return (-1);
 	if (argc == 5)
 	{
-		if (ft_strncmp(argv[1], "julia", 20) != 0 || \
+		if (ft_strncmp(argv[1], "julia", 5) != 0 || \
 			!ft_atoi(argv[4]) || ft_atoi(argv[4]) > 40 || ft_atoi(argv[4]) < 20)
 			return (-1);
 	}
@@ -60,7 +60,7 @@ void	print_param_options(void)
 			"3. Parameter: Width\n480 <-> 1440\n"\
 			"4. Parameter: Only for Julia set\n 20 <-> 40\n", 258);
 	if (ret != 258)
-		exit(0);
+		exit(1);
 }
 
 void	display_help_message(void)
@@ -77,5 +77,5 @@ void	display_help_message(void)
 			" of iterations\n"\
 			"Use: scroll-wheel\t\tto zoom in / out\n", 331);
 	if (ret != 331)
-		exit(0);
+		exit(1);
 }

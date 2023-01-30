@@ -6,7 +6,7 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 10:42:56 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/26 10:23:17 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/30 14:00:38 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	change_interface(t_mlx *data)
 	char	*iterations_string;
 
 	iterations_string = ft_itoa(data->iterations);
-	mlx_string_put(data->mlx, data->win, data->x_width - 120, \
-		15, 0x0000E8EC, iterations_string);
+	mlx_string_put(data->mlx, data->win, data->x_width - 72, \
+		16, 0x0000E8EC, iterations_string);
+	mlx_string_put(data->mlx, data->win, data->x_width - 150, \
+		15, 0x0000E8EC, "Iterations:");
 	free(iterations_string);
 }
 
@@ -37,22 +39,24 @@ void	zoom(t_mlx *data, int x, int y, int direction)
 {
 	double	dx;
 	double	dy;
+	double	zoom_f;
 
+	zoom_f = 0.3;
 	dx = (data->max_re - data->min_re) / data->x_width;
 	dy = (data->max_im - data->min_im) / data->y_height;
 	if (direction == 1)
 	{
-		data->min_re = (data->min_re + ((dx * x) * 0.5));
-		data->max_re = (data->max_re -((dx * (data->x_width - x) * 0.5)));
-		data->max_im = (data->max_im - ((dy * y) * 0.5));
-		data->min_im = (data->min_im +((dy * (data->y_height - y) * 0.5)));
+		data->min_re = (data->min_re + ((dx * x) * zoom_f));
+		data->max_re = (data->max_re - ((dx * (data->x_width - x) * zoom_f)));
+		data->max_im = (data->max_im - ((dy * y) * zoom_f));
+		data->min_im = (data->min_im + ((dy * (data->y_height - y) * zoom_f)));
 	}
 	else
 	{
-		data->min_re = (data->min_re - ((dx * x) * 0.5));
-		data->max_re = (data->max_re +((dx * (data->x_width - x) * 0.5)));
-		data->max_im = (data->max_im + ((dy * y) * 0.5));
-		data->min_im = (data->min_im -((dy * (data->y_height - y) * 0.5)));
+		data->min_re = (data->min_re - ((dx * x) * zoom_f));
+		data->max_re = (data->max_re + ((dx * (data->x_width - x) * zoom_f)));
+		data->max_im = (data->max_im + ((dy * y) * zoom_f));
+		data->min_im = (data->min_im - ((dy * (data->y_height - y) * zoom_f)));
 	}
 }
 
