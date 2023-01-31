@@ -6,11 +6,10 @@
 /*   By: mdoll <mdoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 10:42:56 by mdoll             #+#    #+#             */
-/*   Updated: 2023/01/31 10:46:24 by mdoll            ###   ########.fr       */
+/*   Updated: 2023/01/31 11:35:59 by mdoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../include/fractol.h"
 
 void	change_interface(t_mlx *data)

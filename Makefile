@@ -46,4 +46,4 @@ fract: all
 	@ echo " "
 	@ make clean
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re fract
